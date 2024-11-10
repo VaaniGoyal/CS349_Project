@@ -5,8 +5,6 @@ import neat
 import time
 import os
 import random
-import requests
-from io import BytesIO
 pygame.font.init()
 
 WIN_WIDTH = 500
