@@ -1,23 +1,41 @@
-
+#flappy_bird.py
 import neat.population
 import pygame
 import neat
 import time
 import os
 import random
+import requests
+from io import BytesIO
 pygame.font.init()
 
 WIN_WIDTH = 500
 WIN_HEIGHT = 800
 GEN = 0
 
-BIRD_IMGS = [pygame.transform.scale2x(pygame.image.load(os.path.join("/Users/sakshi/Desktop/Code/Flappy_Bird/NEAT-Flappy-Bird/imgs", "bird1.png"))),
-             pygame.transform.scale2x(pygame.image.load(os.path.join("/Users/sakshi/Desktop/Code/Flappy_Bird/NEAT-Flappy-Bird/imgs", "bird2.png"))),
-             pygame.transform.scale2x(pygame.image.load(os.path.join("/Users/sakshi/Desktop/Code/Flappy_Bird/NEAT-Flappy-Bird/imgs", "bird3.png")))]
+def load_image_from_url(url):
+    response = requests.get(url)
+    image_data = BytesIO(response.content)
+    with open("temp_image.png", "wb") as temp_file:
+        temp_file.write(image_data.getvalue())
+    image = pygame.image.load("temp_image.png")
+    return pygame.transform.scale2x(image)
 
-PIPE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("/Users/sakshi/Desktop/Code/Flappy_Bird/NEAT-Flappy-Bird/imgs", "pipe.png")))
-BASE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("/Users/sakshi/Desktop/Code/Flappy_Bird/NEAT-Flappy-Bird/imgs", "base.png")))
-BG_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("/Users/sakshi/Desktop/Code/Flappy_Bird/NEAT-Flappy-Bird/imgs", "bg.png")))
+# Drive links to download images
+bird1_url = "https://drive.google.com/uc?export=download&id=1XGGYhedyE364SkZWQjuW0uHdlmYPrytQ"
+bird2_url = "https://drive.google.com/uc?export=download&id=10186KNv41Js1pnZYWXmXQZsF66BssP-8"
+bird3_url = "https://drive.google.com/uc?export=download&id=1U2SQqj1U0ojRQVSziY15ebjVt3-ATein"
+pipe_url = "https://drive.google.com/uc?export=download&id=1EBwP5gLxVI904TOr8jCfqtm5SSaspmrp"
+base_url = "https://drive.google.com/uc?export=download&id=1PJDQlkdSgRigAybs_sq3RIJ5IF9itfAi"
+bg_url = "https://drive.google.com/uc?export=download&id=1-J7eD9atx4_nfUU1aC6WT2kAgRL-h69E"
+
+# Load images
+BIRD_IMGS = [load_image_from_url(bird1_url), 
+             load_image_from_url(bird2_url), 
+             load_image_from_url(bird3_url)]
+PIPE_IMG = load_image_from_url(pipe_url)
+BASE_IMG = load_image_from_url(base_url)
+BG_IMG = load_image_from_url(bg_url)
 
 STAT_FONT = pygame.font.SysFont("comicsans", 50)
 
