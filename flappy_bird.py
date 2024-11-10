@@ -23,9 +23,9 @@ def load_image_from_url(url):
     return pygame.transform.scale2x(image)
 
 # Drive links to download images
-bird1_url = "https://drive.google.com/uc?export=download&id=1XGGYhedyE364SkZWQjuW0uHdlmYPrytQ"
-bird2_url = "https://drive.google.com/uc?export=download&id=10186KNv41Js1pnZYWXmXQZsF66BssP-8"
-bird3_url = "https://drive.google.com/uc?export=download&id=1U2SQqj1U0ojRQVSziY15ebjVt3-ATein"
+bird1_url = "https://drive.google.com/uc?export=download&id=1bdtv2XsAoajRI1wdWDprSo3DlQi4zzBU"
+bird2_url = "https://drive.google.com/uc?export=download&id=12t-52GAOotx52PXd1o_WYjmGRb_u_bxY"
+bird3_url = "https://drive.google.com/uc?export=download&id=1Z2HbyondqsQ2A3hEsUN9s5B2tp8t6Rbz"
 pipe_url = "https://drive.google.com/uc?export=download&id=1EBwP5gLxVI904TOr8jCfqtm5SSaspmrp"
 base_url = "https://drive.google.com/uc?export=download&id=1PJDQlkdSgRigAybs_sq3RIJ5IF9itfAi"
 bg_url = "https://drive.google.com/uc?export=download&id=1-J7eD9atx4_nfUU1aC6WT2kAgRL-h69E"
